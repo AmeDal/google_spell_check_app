@@ -1,0 +1,12 @@
+fastapi
+python-multipart
+aiofiles
+uvicorn
+pytest
+requests
+selenium
+chromedriver_autoinstaller
+pandas
+numpy
+tqdm
+pygsheets
