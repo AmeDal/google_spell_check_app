@@ -9,6 +9,7 @@ class Settings(BaseSettings):
     # FastAPI App Configurations
     FAST_API_HOST: str = '0.0.0.0'
     FAST_API_PORT: int = 8000
+    FAST_API_WORKERS: int = max(1, min(os.cpu_count() // 1.5, 5))
     FAST_API_RELOAD: bool = True
     FAST_API_TITLE: str = 'Google Spell-Check App'
     FAST_API_VERSION: str = '1.0'
