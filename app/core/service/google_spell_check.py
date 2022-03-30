@@ -11,7 +11,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from tqdm import tqdm
 
-from ...settings import get_app_settings
+from app.settings import get_app_settings
 
 config = get_app_settings()
 

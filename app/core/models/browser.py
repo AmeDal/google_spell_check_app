@@ -1,14 +1,12 @@
 import os
-import pickle
 import platform
 
 import chromedriver_autoinstaller
+from app.settings import get_app_settings
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
-
-from ...settings import get_app_settings
 
 config = get_app_settings()
 
@@ -50,9 +48,7 @@ class Browser(metaclass = Singleton):
                 chrome_options.add_experimental_option('useAutomationExtension', False)
                 if proxy:
                     chrome_options.add_argument('--proxy-server = http://%s' % proxy)
-                    self.browser = webdriver.Chrome(options = chrome_options, executable_path = chromedriver_autoinstaller.install())
-                else:
-                    self.browser = webdriver.Chrome(options = chrome_options, executable_path = chromedriver_autoinstaller.install())
+                self.browser = webdriver.Chrome(options = chrome_options, executable_path = chromedriver_autoinstaller.install())
 
                 self.google_logged_in = False
                 # Login to Google Account

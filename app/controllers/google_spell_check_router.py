@@ -2,12 +2,11 @@ import os
 from typing import List
 
 import pandas as pd
+from app.core.models.browser import Browser
+from app.core.schema.spell_check_schema import SpellCheckResponse
+from app.core.service.google_spell_check import run_spell_check
+from app.settings import get_app_settings
 from fastapi import APIRouter, HTTPException, Query
-
-from ..core.models.browser import Browser
-from ..core.schema.spell_check_schema import SpellCheckResponse
-from ..core.service.google_spell_check import run_spell_check
-from ..settings import get_app_settings
 
 config = get_app_settings()
 router_name = 'Spell Check'

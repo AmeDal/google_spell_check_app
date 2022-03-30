@@ -1,11 +1,9 @@
 import os
 import time
 
+from app.core.schema.file_input_schema import FileInputResponse
+from app.settings import get_app_settings
 from fastapi import APIRouter, File, HTTPException, Query, UploadFile
-
-from ..core.schema.file_input_schema import FileInputResponse
-from ..settings import get_app_settings
-
 
 config = get_app_settings()
 router_name = 'File Input'

@@ -1,13 +1,13 @@
 from fastapi import FastAPI
 from fastapi.responses import RedirectResponse
 
-from .controllers.browser_router import router as browser
-from .controllers.browser_router import openapi_tag as browser_tag
-from .controllers.file_input_router import router as file_input
-from .controllers.file_input_router import openapi_tag as file_input_tag
-from .controllers.google_spell_check_router import router as spell_check
-from .controllers.google_spell_check_router import openapi_tag as spell_check_tag
-from .settings import get_app_settings
+from app.controllers.browser_router import openapi_tag as browser_tag
+from app.controllers.browser_router import router as browser
+from app.controllers.file_input_router import openapi_tag as file_input_tag
+from app.controllers.file_input_router import router as file_input
+from app.controllers.google_spell_check_router import openapi_tag as spell_check_tag
+from app.controllers.google_spell_check_router import router as spell_check
+from app.settings import get_app_settings
 
 
 # https://github.com/tiangolo/fastapi/issues/508#issuecomment-532368194

@@ -1,11 +1,10 @@
 import os
 
+from app.core.models.browser import Browser
+from app.core.schema.browser_schema import BrowserResponse, ProcessName
+from app.settings import get_app_settings
 from fastapi import APIRouter, HTTPException, Query
 from starlette.responses import FileResponse
-
-from ..core.models.browser import Browser
-from ..core.schema.browser_schema import BrowserResponse, ProcessName
-from ..settings import get_app_settings
 
 config = get_app_settings()
 router_name = 'Browser'
@@ -37,8 +36,10 @@ async def open_url(url: str = Query(
 async def google_login():
     try:
         browser_object = Browser(google_login_flag = True)
-        browser_object.google_login()
-        return BrowserResponse(response_message = f"Successfully logged into Google Account!")
+        is_login_successful = browser_object.google_login()
+        message = f"Successfully logged into Google Account!" if is_login_successful\
+            else "Failed to log into Google Account!"
+        return BrowserResponse(response_message = message)
     except Exception as e:
         error_message = f"Could not log into Google Account due to exception: '{e}'"
         print(error_message)
